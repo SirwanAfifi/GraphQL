@@ -8,6 +8,19 @@ app.get("/", (req, res) => {
   res.send("GraphQ: is amazing!");
 });
 
+class Friend {
+  constructor(id, { firstName, lastName, gender, language, email }) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.gender = gender;
+    this.language = language;
+    this.email = email;
+  }
+}
+
+const friendDatabse = {};
+
 const root = {
   friend: () => {
     return {
@@ -16,12 +29,15 @@ const root = {
       lastName: "Afifi",
       gender: "male",
       language: "Kurdish",
-      emails: [
-        { email: "sir1afifi@gmail.com" },
-        { email: "email2@gmail.com" },
-        { email: "email3@gmail.com" }
-      ]
+      email: "sir1afifi@gmail.com"
     };
+  },
+  createFriend: ({ input }) => {
+    let id = require("crypto")
+      .randomBytes(10)
+      .toString("hex");
+    friendDatabse[id] = input;
+    return new Friend(id, input);
   }
 };
 
