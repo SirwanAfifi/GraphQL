@@ -6,6 +6,18 @@ export const resolvers = {
   Query: {
     getFriend: (root, { id }) => {
       return Friends.findById(id).exec();
+    },
+    users: root => {
+      return [
+        { id: 1, firstName: "Sirwan", lastName: "Afifi", age: 29 },
+        { id: 2, firstName: "User 2", lastName: "UserLastName2", age: 20 },
+        { id: 3, firstName: "User 3", lastName: "UserLastName3", age: 20 },
+        { id: 4, firstName: "User 4", lastName: "UserLastName4", age: 20 },
+        { id: 5, firstName: "User 5", lastName: "UserLastName5", age: 20 },
+        { id: 6, firstName: "User 6", lastName: "UserLastName6", age: 20 },
+        { id: 7, firstName: "User 7", lastName: "UserLastName7", age: 20 },
+        { id: 8, firstName: "User 8", lastName: "UserLastName8", age: 20 }
+      ];
     }
   },
   Mutation: {

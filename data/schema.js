@@ -40,8 +40,16 @@ const typeDefs = `
         contacts: [ContactInput]
     }
 
+    type User {
+        id: ID!
+        firstName: String
+        lastName: String
+        age: Int
+    }
+
     type Query {
         getFriend(id: ID): Friend
+        users: [User]
     }
 
     type Mutation {
